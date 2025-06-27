@@ -1,6 +1,6 @@
 import React from "react";
 
-const TestComponent = () => {
+const HomeComponent = () => {
   return (
     <>
       <div className="grid grid-cols-2 gap-5">
@@ -18,4 +18,4 @@ const TestComponent = () => {
   );
 };
 
-export default TestComponent;
+export default HomeComponent;

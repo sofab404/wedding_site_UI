@@ -1,24 +1,44 @@
 import React from "react";
+import Navbar from "@/components/navbar";
 
 export default function Details() {
     return (
         <>
-        <h1>Our Receptin Details</h1>
-        <br></br>
-        <div>
-            <p>Terrace on the Park</p>
-            <p>5211 111th Street Flushing Meadows Park</p>
-            <p>Queens, NY 11368</p>
-        </div>
+        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
+        <Navbar></Navbar>
+        <div className="grid grid-cols-2 gap-1">
+            <div>
+                <img src="images/details_page_photo.png"></img>    
+            </div>
 
-        <br></br>
-        <div>
-            Check back again for event schedule!
+            <div className="content-center">
+                <p className="text-[33px] font-bold text-center">Our Reception Details</p>
+                <br></br>
+                <div className="text-[21px] text-center">
+                    <p>Terrace on the Park</p>
+                    <p>5211 111th Street Flushing Meadows Park</p>
+                    <p>Queens, NY 11368</p>
+                </div>
+
+                <br></br>
+                <div className="text-[21px] text-center">
+                    <p>Parking located at Venue</p>
+                    <p>For Directions to venue, text “TOP” to 208-216-1688</p>
+                </div>
+
+                <br></br>
+                <div className="text-[21px] text-center">
+                    <p>Dress Code: Light pastal colors</p>
+                </div>
+
+                <br></br>
+                <div className="text-[24px] text-center">
+                    Check back again for event schedule!
+                </div>
+
+            </div>
+
         </div>
-        <br></br>
-        <div>
-            <p>Parking located at Venue</p>
-            <p>For Directions to venue, text “TOP” to 208-216-1688</p>
         </div>
         </>
     )
