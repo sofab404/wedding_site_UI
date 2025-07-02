@@ -10,10 +10,20 @@ export default function Faqs() {
         <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
         <Navbar />
 
+
         <div className="grid grid-cols-1 w-full">
-            {faqData.map((faq, index) => (
+            <div className="text-center text-[21px]">
+            <h2>Frequently Asked Questions</h2>
+            <br></br>
+            </div>
+
+
+        <div>
+        {faqData.map((faq, index) => (
                 <AccordianCell key={index} faq={faq}></AccordianCell>
             ))}
+        </div>
+
         </div>
 
 

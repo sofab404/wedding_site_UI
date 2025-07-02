@@ -1,11 +1,17 @@
 import React from "react";
+import Image from "next/image";
 
 const HomeComponent = () => {
   return (
     <>
       <div className="grid grid-cols-2 gap-5">
         <div>
-          <img src="images/home_page_photo.png"></img>
+          <Image
+            height={270}
+            width={600}
+            src="/images/home_page_photo.png"
+            alt="Marriage Pic"
+          ></Image>
         </div>
 
         <div className="grid grid-cols-3 gap-1 text-[65px] font-bold">
