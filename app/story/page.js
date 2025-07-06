@@ -23,13 +23,14 @@ export default function OurStory() {
         <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
             <Navbar />
 
+
         <div className="relative w-full max-w-3xl mx-auto">
+        <h2 className="text-center text-[30px]">Our Love Story</h2>
         
         <div className="flex overflow-x-auto snap-x snap-mandatory space-x-4 p-4 scrollbar-none touch-pan-x" ref={myCarouselRef}>
                     {storyCards.map((card, index) => (
                         <div key={index} className="snap-center flex-shrink-0">
                         <StoryCard image={card.image} content={card.content} date={card.date}></StoryCard>
-                        <p>{index}</p>
                         </div>
                         
                     ))}

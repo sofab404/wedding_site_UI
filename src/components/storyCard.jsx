@@ -9,14 +9,15 @@ const StoryCard = ({ image, content, date }) => {
     <div className="cursor-pointer shadow-lg relative transform ${rotate} transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl active:scale-105">
       {!flipped ? (
         <div className="w-60" onClick={() => setFlipped(!flipped)}>
-          <div className="text-[14px] bg-white text-center">{date}</div>
+          <div className="text-[14px] bg-white text-center h-">{date}</div>
+
           <Image
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "100%", height: "auto" }} // optional
             src={image}
-            alt="Proposal Pic"
+            alt={image}
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-full h-80"
           ></Image>
 
           <div className="text-[20px] bg-white text-center h-20 p-5">

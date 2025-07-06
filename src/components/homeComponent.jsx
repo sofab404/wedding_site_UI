@@ -14,10 +14,16 @@ const HomeComponent = () => {
           ></Image>
         </div>
 
-        <div className="grid grid-cols-3 gap-1 text-[65px] font-bold">
-          <div className="col-start-1 row-start-2 content-start">SOHEL</div>
-          <div className="row-start-2 content-center">&</div>
-          <div className="col-start-3 row-start-2 content-end">FABLIHA</div>
+        <div className="grid grid-cols-3 gap-1 text-[65px]">
+          <div className="col-start-1 row-start-1 content-end text-pink-300">
+            SOHEL
+          </div>
+          <div className="col-start-2 row-start-2 content-start text-pink-300">
+            &
+          </div>
+          <div className="col-start-2 row-start-2 content-center text-pink-300">
+            FABLIHA
+          </div>
         </div>
       </div>
     </>
