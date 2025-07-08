@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "@/components/navbar";
+import Image from "next/image";
 
 export default function Details() {
     return (
@@ -7,12 +8,15 @@ export default function Details() {
         <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
         <Navbar></Navbar>
         <div className="grid grid-cols-2 gap-1">
-            <div>
-                <img src="images/details_page_photo.png"></img>    
-            </div>
+                <Image
+                height={270}
+                width={600}
+                src="/images/details_page_photo.png"
+                alt="Eid Pic"
+                ></Image>
 
             <div className="content-center">
-                <p className="text-[33px] font-bold text-center">Our Reception Details</p>
+                <p className="text-[33px] text-center">Our Reception Details</p>
                 <br></br>
                 <div className="text-[21px] text-center">
                     <p>Terrace on the Park</p>

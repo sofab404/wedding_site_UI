@@ -1,5 +1,13 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const marchRoughFont = localFont({
+  src: "../public/fonts/March_Rough.ttf",
+  style: "normal",
+  weight: "400",
+  variable: "--font-myfont",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${marchRoughFont.className} antialiased`}
       >
         {children}
       </body>

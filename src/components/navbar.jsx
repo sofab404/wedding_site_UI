@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <>
-      <div className="font-[March_Rough] text-[22px] font-bold flex gap-16">
+      <div className="text-[22px] flex gap-16">
         <div className="flex-auto cursor-pointer">
           <a href="/">Home</a>
         </div>
@@ -15,9 +15,6 @@ const Navbar = () => {
         </div>
         <div className="flex-auto cursor-pointer">
           <a href="/details">Details</a>
-        </div>
-        <div className="flex-auto cursor-pointer">
-          <a href="/registry">Registry</a>
         </div>
         <div className="flex-auto cursor-pointer">
           <a href="/faqs">FAQs</a>

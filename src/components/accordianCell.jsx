@@ -5,18 +5,20 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 const AccordianCell = ({ faq }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border rounded-md shadow-sm mb-2">
+    <div className="border rounded-md shadow-sm mb-2 p-4 bg-purple-200 hover:bg-purple-100">
       <label
-        className="text-[21px] w-full flex justify-between items-center cursor-pointer bg-purple-200 hover:bg-gray-200 transition-colors"
+        className="text-[21px] w-full flex justify-between items-center cursor-pointer transition-colors"
         onClick={() => setOpen(!open)}
       >
-        {faq.question} {open ? <FaChevronUp /> : <FaChevronDown />}
+        <span>{faq.question}</span>
+
+        <span className="pr-4">
+          {open ? <FaChevronUp /> : <FaChevronDown />}
+        </span>
       </label>
 
       {open ? (
-        <p className="w-full justify-center items-center border-2 border-purple-300">
-          {faq.answer}
-        </p>
+        <p className="w-full justify-center items-center">{faq.answer}</p>
       ) : (
         <p></p>
       )}
