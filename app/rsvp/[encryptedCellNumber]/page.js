@@ -1,15 +1,22 @@
 'use client'
 import React, {useState, useEffect} from "react";
 import Navbar from "@/components/navbar";
+import CryptoJS from "crypto-js";
 
 export default function RSVP({params}) {
-    const { cellNumber } = React.use(params)
-    const [rsvpFormFilled, setRsvpFormFilled] = useState(cellNumber === "123" ? true : false);
+    const { encryptedCellNumber } = React.use(params)
+
+    const subsDec = { "-": "+", "_": "/", "~": "=" };
+    const cipherText = encryptedCellNumber.replace(/[-_~]/g, c => subsDec[c]);
+    const decyptData = CryptoJS.AES.decrypt(cipherText, "ILoveSohel");
+    const cellNumber = decyptData.toString(CryptoJS.enc.Utf8);
+
+    const [rsvpFormFilled, setRsvpFormFilled] = useState(false);
     const [invitationName, setInvitationName] = useState("");
     const [fullName, setFullName] = useState("");
-    const [potentialGuestCount, setPotentialGuestCount] = useState(4);
+    const [potentialGuestCount, setPotentialGuestCount] = useState(0);
     const [totalGuestCount, setTotalGuestCount] = useState("Please Select Total Count");
-    const [family, setFamily] = useState(cellNumber === "456" ? true : false);
+    const [family, setFamily] = useState();
     const [plusOne, setPlusOne] = useState();
     const [kidsAttend, setKidsAttend] = useState();
     const [canAttend, setCanAttend] = useState();
@@ -56,11 +63,9 @@ export default function RSVP({params}) {
         console.log("totwees", totalGuestCount)
         if(fullName.length === 0 || canAttend === undefined)
         {
-            console.log("feopshnsef")
             setInvalidEntry(true);
         } else if(canAttend === true && ((family && totalGuestCount === "Please Select Total Count") || (!family && plusOne === undefined) || kidsAttend === undefined))
         {
-            console.log("feo234234pshnsef")
             setInvalidEntry(true);
         }
         else {
