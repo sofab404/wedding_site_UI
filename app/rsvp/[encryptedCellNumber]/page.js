@@ -25,7 +25,27 @@ export default function RSVP({params}) {
     const [invalidEntry, setInvalidEntry] = useState(false);
 
     useEffect(() => {
-        setInvitationName("Test Name")
+        setInvitationName("Test Name") 
+            async function fetchData(){
+                const apiResponse = await fetch("http://localhost:4000/post1", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({phone: cellNumber})
+            })
+            const serverResponse = await apiResponse.json()
+            console.log(serverResponse)
+            // if(serverResponse[0].count === 2) {
+            //     setCategory("plusOne")
+            // }
+            // ser.then(response => {
+            //     console.log(response.json)
+            // })
+
+            }
+            fetchData();
+            //console.log(data);
     },[])
 
     const updateFullName = (e) => {
@@ -58,7 +78,7 @@ export default function RSVP({params}) {
         setKidsAttend(e.target.value === "true")
     }
 
-    const toggleFormSubmit = () => {
+    const toggleFormSubmit = async() => {
         if(fullName.length === 0 || canAttend === undefined)
         {
             setInvalidEntry(true);
@@ -77,6 +97,16 @@ export default function RSVP({params}) {
     
             console.log("response submitted", response)
             setFormSubmitted(true);
+            const apiResponse = await fetch("http://localhost:4000/post2", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(response)
+            })
+
+            const data = await apiResponse.json();
+            console.log(data);
         }
     }
     
