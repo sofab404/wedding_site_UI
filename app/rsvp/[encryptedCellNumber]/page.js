@@ -1,15 +1,22 @@
 'use client'
 import React, {useState, useEffect} from "react";
 import Navbar from "@/components/navbar";
+import CryptoJS from "crypto-js";
 
 export default function RSVP({params}) {
-    const { cellNumber } = React.use(params)
-    const [rsvpFormFilled, setRsvpFormFilled] = useState(cellNumber === "123" ? true : false);
+    const { encryptedCellNumber } = React.use(params)
+
+    const subsDec = { "-": "+", "_": "/", "~": "=" };
+    const cipherText = encryptedCellNumber.replace(/[-_~]/g, c => subsDec[c]);
+    const decyptData = CryptoJS.AES.decrypt(cipherText, "ILoveSohel");
+    const cellNumber = decyptData.toString(CryptoJS.enc.Utf8);
+
+    const [rsvpFormFilled, setRsvpFormFilled] = useState(false);
     const [invitationName, setInvitationName] = useState("");
     const [fullName, setFullName] = useState("");
-    const [potentialGuestCount, setPotentialGuestCount] = useState(4);
+    const [potentialGuestCount, setPotentialGuestCount] = useState(10);
     const [totalGuestCount, setTotalGuestCount] = useState("Please Select Total Count");
-    const [family, setFamily] = useState(cellNumber === "456" ? true : false);
+    const [category, setCategory] = useState("solo");
     const [plusOne, setPlusOne] = useState();
     const [kidsAttend, setKidsAttend] = useState();
     const [canAttend, setCanAttend] = useState();
@@ -42,25 +49,21 @@ export default function RSVP({params}) {
     }
 
     useEffect(() => {
-        if(!family) {
+        if(!category === "family") {
             setTotalGuestCount(plusOne ? 2 : 1);
         }
-    }, [family, plusOne])
+    }, [category, plusOne])
 
     const handleKidsQuestion = (e) => { 
         setKidsAttend(e.target.value === "true")
     }
 
     const toggleFormSubmit = () => {
-        console.log("can atte", canAttend)
-        console.log("totwees", totalGuestCount)
         if(fullName.length === 0 || canAttend === undefined)
         {
-            console.log("feopshnsef")
             setInvalidEntry(true);
-        } else if(canAttend === true && ((family && totalGuestCount === "Please Select Total Count") || (!family && plusOne === undefined) || kidsAttend === undefined))
+        } else if(canAttend === true && ((category === "family" && totalGuestCount === "Please Select Total Count") || ((category == "plusOne") && plusOne === undefined) || kidsAttend === undefined))
         {
-            console.log("feo234234pshnsef")
             setInvalidEntry(true);
         }
         else {
@@ -120,7 +123,7 @@ export default function RSVP({params}) {
                                 <span className="ml-2 text-gray-900">No</span>
                             </div>
 
-                            {family ?
+                            {category==="family" ?
                                 <>
                                     <label className={`col-start-1 row-start-3 ${disabled ? 'opacity-50' : ''}`}>Including yourself, what is your total adult guest count? </label>
                                     <select onChange={handleGuestCount} disabled={disabled} className={`col-start-2 row-start-3 col-span-2 w-40 px-3 py-2 border border-black-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${disabled ? 'opacity-50' : ''}`}>
@@ -132,33 +135,35 @@ export default function RSVP({params}) {
                                         ))}
                                     </select>
                                 </>: <>
-                                    <label className={`col-start-1 row-start-3 ${disabled ? 'opacity-50' : ''}`}>Will you be bringing a plus one? </label>
-                                    <div className="col-start-2 row-start-3">
-                                        <input
-                                            type="radio"
-                                            name="plusOneOptions"
-                                            value="true"
-                                            className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-300"
-                                            disabled={disabled}
-                                            checked={plusOne === true}
-                                            onChange={handlePlusOne}
-                                        />
-                                        <span className="ml-2 text-gray-900">Yes</span>
-                                    </div>
+                                    {category==="plusOne" ? 
+                                        <>
+                                            <label className={`col-start-1 row-start-3 ${disabled ? 'opacity-50' : ''}`}>Will you be bringing a plus one? </label>
+                                            <div className="col-start-2 row-start-3">
+                                                <input
+                                                    type="radio"
+                                                    name="plusOneOptions"
+                                                    value="true"
+                                                    className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-300"
+                                                    disabled={disabled}
+                                                    checked={plusOne === true}
+                                                    onChange={handlePlusOne}
+                                                />
+                                                <span className="ml-2 text-gray-900">Yes</span>
+                                            </div>
 
-                                    <div className="col-start-3 row-start-3">
-                                        <input
-                                            type="radio"
-                                            name="plusOneOptions"
-                                            value="false"
-                                            className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-300"
-                                            disabled={disabled}
-                                            checked={plusOne === false}
-                                            onChange={handlePlusOne}
-                                        />
-                                        <span className="ml-2 text-gray-900">No</span>
-                                    </div>
-                                </>}
+                                            <div className="col-start-3 row-start-3">
+                                                <input
+                                                    type="radio"
+                                                    name="plusOneOptions"
+                                                    value="false"
+                                                    className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-300"
+                                                    disabled={disabled}
+                                                    checked={plusOne === false}
+                                                    onChange={handlePlusOne}
+                                                />
+                                                <span className="ml-2 text-gray-900">No</span>
+                                            </div> </> : <></>}
+                                    </>}
 
                             <label className={`col-start-1 row-start-4 ${disabled ? 'opacity-50' : ''}`}>Will there be any children coming with you?</label>
                             <div className="col-start-2 row-start-4">

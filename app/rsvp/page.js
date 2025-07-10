@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import Navbar from '@/components/navbar';
 import { useRouter } from 'next/navigation';
+import CryptoJS from "crypto-js";
 
 export default function MainPage() {
     const router = useRouter();
@@ -33,10 +34,17 @@ export default function MainPage() {
         else {
             if(!(cellNumber.length === 0)) {
                 setLoadingMessage("Loading your details...")
-                router.replace(`/rsvp/${cellNumber}`)
+                
+
+                // encrypting cell number
+                const subsEnc = { "+": "-", "/": "_", "=": "~" };
+                const encryptedCell = CryptoJS.AES.encrypt(cellNumber, "ILoveSohel").toString();
+                const cipher = encryptedCell.replace(/[+/=]/g, c => subsEnc[c])
+
+                router.replace(`/rsvp/${cipher}`)
             }
         }
-    }, [cellNumber, router, routeToPage])
+    }, [router, routeToPage])
     return (
 
         <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
