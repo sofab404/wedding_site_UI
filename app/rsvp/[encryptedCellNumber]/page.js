@@ -23,6 +23,7 @@ export default function RSVP({params}) {
     const [disabled, setDisabled] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [invalidEntry, setInvalidEntry] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData(){
@@ -50,6 +51,7 @@ export default function RSVP({params}) {
             }
         }
 
+        setIsLoading(false);
         }
 
 
@@ -82,7 +84,6 @@ export default function RSVP({params}) {
 
     useEffect(() => {
         if(category === "plusOne") {
-            console.log("goes here")
             setTotalGuestCount(plusOne ? 2 : 1);
         }
     }, [category, plusOne])
@@ -129,17 +130,18 @@ export default function RSVP({params}) {
         <Navbar />
 
         <div className="grid text-[20px]">
-            {rsvpFormFilled ? <p>You have already filled out your RSVP form. <br></br>If you have issues, please contact us ASAP</p> :
+            {isLoading ? <><p className="text-[30px] text-center text-red-600">Please wait, the form is loading</p></> : <></>}
+            {rsvpFormFilled ? <p>You have already filled out your RSVP form. Please see details of event here:</p> :
                 <>
                     {formSubmitted ? <>
                     
                         <p>Thank you filling out the form!</p>
+                        <br></br>
                         <p>You Submitted the Following</p>
 
                         <p>Full Name: {fullName}</p>
                         <p>Are you able to attend? {canAttend ? "Yes" : "No"} </p>
                         {canAttend ? <>
-
                             {category === "solo" ? <></> : <><p>Total Count from your party: {totalGuestCount}</p></>}
                             <p>Are you bringing any kids? {kidsAttend ? "Yes" : "No"} </p>
                         </> : <></>}
