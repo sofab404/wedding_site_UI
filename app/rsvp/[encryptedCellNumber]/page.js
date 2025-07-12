@@ -14,9 +14,9 @@ export default function RSVP({params}) {
     const [rsvpFormFilled, setRsvpFormFilled] = useState(false);
     const [invitationName, setInvitationName] = useState("");
     const [fullName, setFullName] = useState("");
-    const [potentialGuestCount, setPotentialGuestCount] = useState(0);
-    const [totalGuestCount, setTotalGuestCount] = useState("Please Select Total Count");
     const [category, setCategory] = useState("solo");
+    const [potentialGuestCount, setPotentialGuestCount] = useState(0);
+    const [totalGuestCount, setTotalGuestCount] = useState(category === "solo" ? 1 : "Please Select Total Count");
     const [plusOne, setPlusOne] = useState();
     const [kidsAttend, setKidsAttend] = useState();
     const [canAttend, setCanAttend] = useState();
