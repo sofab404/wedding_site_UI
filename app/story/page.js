@@ -2,8 +2,6 @@
 import React, {useRef} from "react";
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
-
-import Navbar from "@/components/navbar";
 import StoryCard from "@/components/storyCard";
 import storyCards from '../../public/data/storyCards.json'
 
@@ -20,8 +18,6 @@ export default function OurStory() {
         myCarouselRef.current.scrollLeft += width;
     }
     return (
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
-            <Navbar />
 
 
         <div className="relative w-full max-w-3xl mx-auto">
@@ -37,7 +33,6 @@ export default function OurStory() {
             </div>
             <SlArrowLeft size={30} onClick={scrollLeft} className="absolute -left-10 top-1/2 transform -translate-y-1/2 rounded-full shadow cursor-pointer"></SlArrowLeft>
             <SlArrowRight size={30} onClick={scrollRight} className="absolute -right-10 top-1/2 transform -translate-y-1/2 rounded-full shadow cursor-pointer"></SlArrowRight>
-        </div>
         </div>
     )
 }

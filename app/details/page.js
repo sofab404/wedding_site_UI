@@ -1,13 +1,10 @@
 import React from "react";
-import Navbar from "@/components/navbar";
 import Image from "next/image";
 
 export default function Details() {
     return (
         <>
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
-        <Navbar></Navbar>
-        <div className="grid grid-cols-2 gap-1">
+        <div className="grid md:grid-cols-2 gap-1">
                 <Image
                 height={270}
                 width={600}
@@ -42,7 +39,6 @@ export default function Details() {
 
             </div>
 
-        </div>
         </div>
         </>
     )

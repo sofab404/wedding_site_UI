@@ -1,6 +1,5 @@
 'use client'
 import React, {useEffect, useState} from 'react';
-import Navbar from '@/components/navbar';
 import { useRouter } from 'next/navigation';
 import CryptoJS from "crypto-js";
 
@@ -66,9 +65,6 @@ export default function MainPage() {
     }, [router, routeToPage])
     return (
 
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-15">
-        <Navbar />
-
         <div className='grid'>
         <label className='text-[20px] text-center'>Please Enter Your Phone Number for RSVP!</label> <br></br>
         <input className="rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 text-base placeholder-gray-500 placeholder-italic shadow-sm focus:border-indigo-400 focus:ring-2 focus:ring-indigo-200 focus:outline-none text-center" 
@@ -84,7 +80,5 @@ export default function MainPage() {
         <button className="text-[20px] cursor-pointer border border-black-300 bg-white hover:bg-gray-200" onClick={toggleRoute}>Enter</button>
         <p className='text-center'>{loadingMessage}</p>
         </div>
-
-    </div>
     )
 }

@@ -1,6 +1,5 @@
 'use client'
 import React, {useState, useEffect} from "react";
-import Navbar from "@/components/navbar";
 import CryptoJS from "crypto-js";
 
 export default function RSVP({params}) {
@@ -126,9 +125,6 @@ export default function RSVP({params}) {
     
     
     return (
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8">
-        <Navbar />
-
         <div className="grid text-[20px]">
             {isLoading ? <><p className="text-[30px] text-center text-red-600">Please wait, the form is loading</p></> : <></>}
             {rsvpFormFilled ? <p>You have already filled out your RSVP form. Please see details of event here:</p> :
@@ -262,8 +258,5 @@ export default function RSVP({params}) {
             </>
             }
         </div>
-
-                                    
-    </div>
     )
 }

@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import Navbar from "@/components/navbar";
 
 const marchRoughFont = localFont({
   src: "../public/fonts/March_Rough.ttf",
@@ -30,7 +31,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${marchRoughFont.className} antialiased`}
       >
+        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 gap-10 md:gap-16">
+        <Navbar/>
         {children}
+        </div>
+
       </body>
     </html>
   );

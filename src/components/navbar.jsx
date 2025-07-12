@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <>
-      <div className="text-[22px] flex gap-16">
+      <div className="text-[15px] md:text-[22px] flex gap-4 md:gap-16">
         <div className="flex-auto cursor-pointer">
           <a href="/">Home</a>
         </div>
