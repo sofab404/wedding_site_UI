@@ -34,18 +34,25 @@ export default function RSVP({params}) {
             body: JSON.stringify({phone: cellNumber})
         })
         const serverResponse = await apiResponse.json()
+        
+        if(serverResponse.message) {
+            setRsvpFormFilled(true) // if rsvp already recorded
+        } else {
+            // set invitation name
+            setInvitationName(serverResponse[0].invitation_name)
 
-        // set invitation name
-        setInvitationName(serverResponse[0].invitation_name)
+            // set category 
+            if(serverResponse[0].count === 2) {
+                setCategory("plusOne")
+            } else if(serverResponse[0].count > 2) {
+                setCategory("family")
+                setPotentialGuestCount(serverResponse[0].count)
+            }
+        }
 
-        // set category 
-        if(serverResponse[0].count === 2) {
-            setCategory("plusOne")
-        } else if(serverResponse[0].count > 2) {
-            setCategory("family")
-            setPotentialGuestCount(serverResponse[0].count)
         }
-        }
+
+
         fetchData();
     },[])
 
@@ -122,7 +129,7 @@ export default function RSVP({params}) {
         <Navbar />
 
         <div className="grid text-[20px]">
-            {rsvpFormFilled ? <p>You have already filled out your RSVP form. Please see details of event here:</p> :
+            {rsvpFormFilled ? <p>You have already filled out your RSVP form. <br></br>If you have issues, please contact us ASAP</p> :
                 <>
                     {formSubmitted ? <>
                     

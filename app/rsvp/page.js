@@ -26,8 +26,9 @@ export default function MainPage() {
                 body: JSON.stringify({phone: cellNumber})
             })
             const serverResponse = await apiResponse.json()
+            console.log(serverResponse)
 
-            if(serverResponse.length > 0)
+            if(serverResponse.length > 0 || serverResponse.message)
             {
                 setRouteToPage(true)
             }
