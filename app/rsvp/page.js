@@ -10,18 +10,36 @@ export default function MainPage() {
     const [routeToPage, setRouteToPage] = useState(false);
     const [loadingMessage, setLoadingMessage] = useState("") 
     const [invalidResponse, setInvalidResponse] = useState(false);
+    const [invalidCell, setInvalidCell] = useState(false);
 
-    const toggleRoute = () => {
-        if(!(cellNumber.length === 0)) {
-            setRouteToPage(true)
-        }
-
+    const toggleRoute = async() => {
         const regex = /^\d+$/;
         if(!regex.test(cellNumber)) {
             setInvalidResponse(true)
             setRouteToPage(false)
+        } else {
+            const apiResponse = await fetch("http://localhost:4000/post1", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({phone: cellNumber})
+            })
+            const serverResponse = await apiResponse.json()
+
+            if(serverResponse.length > 0)
+            {
+                setRouteToPage(true)
+            }
+            else{
+                setInvalidResponse(false)
+                setInvalidCell(true)
+            }
+
+            }
         }
-    }
+
+    
 
     const updateCellNumber = (e) => {
         setCellNumber(e.target.value)
@@ -58,6 +76,7 @@ export default function MainPage() {
             onChange={(e) => updateCellNumber(e)}>
         </input>
         {invalidResponse ? <p className='text-red-600 text-center'>Please enter phone number with only digits and no dashes!</p>: <></>}
+        {invalidCell ? <p className='text-red-600 text-center'>Invalid Entry! Number does not exist in our database. <br></br>Please try another number</p>: <></>}
         
             
         <br></br>

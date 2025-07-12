@@ -14,7 +14,7 @@ export default function RSVP({params}) {
     const [rsvpFormFilled, setRsvpFormFilled] = useState(false);
     const [invitationName, setInvitationName] = useState("");
     const [fullName, setFullName] = useState("");
-    const [potentialGuestCount, setPotentialGuestCount] = useState(10);
+    const [potentialGuestCount, setPotentialGuestCount] = useState(0);
     const [totalGuestCount, setTotalGuestCount] = useState("Please Select Total Count");
     const [category, setCategory] = useState("solo");
     const [plusOne, setPlusOne] = useState();
@@ -25,27 +25,28 @@ export default function RSVP({params}) {
     const [invalidEntry, setInvalidEntry] = useState(false);
 
     useEffect(() => {
-        setInvitationName("Test Name") 
-            async function fetchData(){
-                const apiResponse = await fetch("http://localhost:4000/post1", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({phone: cellNumber})
-            })
-            const serverResponse = await apiResponse.json()
-            console.log(serverResponse)
-            // if(serverResponse[0].count === 2) {
-            //     setCategory("plusOne")
-            // }
-            // ser.then(response => {
-            //     console.log(response.json)
-            // })
+        async function fetchData(){
+            const apiResponse = await fetch("http://localhost:4000/post1", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({phone: cellNumber})
+        })
+        const serverResponse = await apiResponse.json()
 
-            }
-            fetchData();
-            //console.log(data);
+        // set invitation name
+        setInvitationName(serverResponse[0].invitation_name)
+
+        // set category 
+        if(serverResponse[0].count === 2) {
+            setCategory("plusOne")
+        } else if(serverResponse[0].count > 2) {
+            setCategory("family")
+            setPotentialGuestCount(serverResponse[0].count)
+        }
+        }
+        fetchData();
     },[])
 
     const updateFullName = (e) => {
@@ -119,7 +120,7 @@ export default function RSVP({params}) {
             {rsvpFormFilled ? <p>You have already filled out your RSVP form. Please see details of event here:</p> :
                 <>
                     {formSubmitted ? <><p>Thank you filling out the form!</p></> : <>
-                    <p> Hello {invitationName}</p>
+                    <p> Hello {invitationName}!</p>
                     <p className="text-center">Please fill out the form to RSVP to our event!</p>
                     <br></br>
 
