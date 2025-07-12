@@ -59,6 +59,10 @@ export default function RSVP({params}) {
 
     useEffect(() => {
         setDisabled(!canAttend)
+        if(canAttend === false)
+        {
+            setTotalGuestCount(0)
+        }
     }, [canAttend])
 
     const handleGuestCount = (e) => {
@@ -70,7 +74,8 @@ export default function RSVP({params}) {
     }
 
     useEffect(() => {
-        if(!category === "family") {
+        if(category === "plusOne") {
+            console.log("goes here")
             setTotalGuestCount(plusOne ? 2 : 1);
         }
     }, [category, plusOne])
@@ -119,7 +124,22 @@ export default function RSVP({params}) {
         <div className="grid text-[20px]">
             {rsvpFormFilled ? <p>You have already filled out your RSVP form. Please see details of event here:</p> :
                 <>
-                    {formSubmitted ? <><p>Thank you filling out the form!</p></> : <>
+                    {formSubmitted ? <>
+                    
+                        <p>Thank you filling out the form!</p>
+                        <p>You Submitted the Following</p>
+
+                        <p>Full Name: {fullName}</p>
+                        <p>Are you able to attend? {canAttend ? "Yes" : "No"} </p>
+                        {canAttend ? <>
+
+                            {category === "solo" ? <></> : <><p>Total Count from your party: {totalGuestCount}</p></>}
+                            <p>Are you bringing any kids? {kidsAttend ? "Yes" : "No"} </p>
+                        </> : <></>}
+
+                        </> 
+                    
+                    : <>
                     <p> Hello {invitationName}!</p>
                     <p className="text-center">Please fill out the form to RSVP to our event!</p>
                     <br></br>
