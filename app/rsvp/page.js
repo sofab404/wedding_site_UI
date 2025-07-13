@@ -23,7 +23,7 @@ export default function MainPage() {
             setInvalidResponse(true)
             setRouteToPage(false)
         } else {
-            const apiResponse = await fetch("http://localhost:4000/post1", {
+            const apiResponse = await fetch(process.env.NEXT_PUBLIC_GET_RSVP_INFO_ENDPOINT, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
