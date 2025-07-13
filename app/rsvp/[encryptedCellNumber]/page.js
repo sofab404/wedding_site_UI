@@ -7,7 +7,7 @@ export default function RSVP({params}) {
 
     const subsDec = { "-": "+", "_": "/", "~": "=" };
     const cipherText = encryptedCellNumber.replace(/[-_~]/g, c => subsDec[c]);
-    const decyptData = CryptoJS.AES.decrypt(cipherText, "ILoveSohel");
+    const decyptData = CryptoJS.AES.decrypt(cipherText, process.env.NEXT_PUBLIC_SECRET_KEY);
     const cellNumber = decyptData.toString(CryptoJS.enc.Utf8);
 
     const [rsvpFormFilled, setRsvpFormFilled] = useState(false);
@@ -26,7 +26,7 @@ export default function RSVP({params}) {
 
     useEffect(() => {
         async function fetchData(){
-            const apiResponse = await fetch("http://localhost:4000/post1", {
+            const apiResponse = await fetch(process.env.NEXT_PUBLIC_GET_RSVP_INFO_ENDPOINT, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ export default function RSVP({params}) {
     
             console.log("response submitted", response)
             setFormSubmitted(true);
-            const apiResponse = await fetch("http://localhost:4000/post2", {
+            const apiResponse = await fetch(process.env.NEXT_PUBLIC_SUBMIT_RSVP_INFO_ENDPOINT, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

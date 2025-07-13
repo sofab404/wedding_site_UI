@@ -62,7 +62,7 @@ export default function MainPage() {
 
                 // encrypting cell number
                 const subsEnc = { "+": "-", "/": "_", "=": "~" };
-                const encryptedCell = CryptoJS.AES.encrypt(cellNumber, "ILoveSohel").toString();
+                const encryptedCell = CryptoJS.AES.encrypt(cellNumber, process.env.NEXT_PUBLIC_SECRET_KEY).toString();
                 const cipher = encryptedCell.replace(/[+/=]/g, c => subsEnc[c])
 
                 router.replace(`/rsvp/${cipher}`)
