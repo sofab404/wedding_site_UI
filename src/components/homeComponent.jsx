@@ -5,16 +5,16 @@ const HomeComponent = () => {
   return (
     <>
       <div className="grid grid-cols-2">
-        <div>
+        <div className="place-self-center">
           <Image
             height={270}
-            width={600}
+            width={700}
             src="/images/home_page_photo.png"
             alt="Marriage Pic"
           ></Image>
         </div>
 
-        <div className="grid grid-row-3 grid-cols-3 text-[5vw] text-pink-300"> 
+        <div className="grid grid-row-3 grid-cols-3 place-self-center text-[5vw] text-pink-300"> 
 
           
           <div className="self-end pl-[calc(50%)]">
