@@ -4,7 +4,7 @@ import Image from "next/image";
 const HomeComponent = () => {
   return (
     <>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-2">
         <div>
           <Image
             height={270}
@@ -14,17 +14,48 @@ const HomeComponent = () => {
           ></Image>
         </div>
 
-        <div className="grid grid-cols-3 gap-1 text-[65px]">
-          <div className="col-start-1 row-start-1 content-end text-pink-300">
+        <div className="grid grid-row-3 grid-cols-3 text-[5vw] text-pink-300"> 
+
+          
+          <div className="self-end pl-[calc(50%)]">
             SOHEL
           </div>
-          <div className="col-start-2 row-start-2 content-start text-pink-300">
+          <div></div>
+          <div></div>
+
+          <div></div>
+          <div className="place-self-center"> 
             &
           </div>
-          <div className="col-start-2 row-start-2 content-center text-pink-300">
+          <div></div>
+
+          <div></div>
+          <div className="self-top pl-[calc(50%)]"> 
             FABLIHA
           </div>
+          <div></div>
+
         </div>
+
+
+          {/* <div className="grid grid-rows-subgrid grid-row-3 gap-4 place-self-stretch text-[65px] text-pink-300">
+            <div>
+              SOHEL
+            </div>
+            <div>
+              &
+            </div>
+            <div>
+              FABLIHA
+            </div>
+          </div>   
+
+
+        </div> */}       
+
+
+
+
       </div>
     </>
   );
