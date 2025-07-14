@@ -6,10 +6,10 @@ const StoryCard = ({ image, content, date }) => {
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <div className="cursor-pointer shadow-lg relative transform ${rotate} transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl active:scale-105">
+    <div className="cursor-pointer shadow-lg transform ${rotate} transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl active:scale-105 object-contain flex-shrink-0 sm:max-w-md lg:max-w-xl snap-start">
       {!flipped ? (
         <div className="w-60" onClick={() => setFlipped(!flipped)}>
-          <div className="text-[14px] bg-white text-center h-">{date}</div>
+          <div className="text-[14px] bg-white text-center w-full">{date}</div>
 
           <Image
             src={image}
@@ -20,7 +20,7 @@ const StoryCard = ({ image, content, date }) => {
             className="w-full h-80"
           ></Image>
 
-          <div className="text-[20px] bg-white text-center h-20 p-5">
+          <div className="text-[20px] bg-white text-center h-20 p-5 w-full">
             Click for more deets!
           </div>
         </div>

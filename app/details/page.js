@@ -17,19 +17,20 @@ export default function Details() {
                 <br></br>
                 <div className="text-[21px] text-center">
                     <p>Terrace on the Park</p>
-                    <p>5211 111th Street Flushing Meadows Park</p>
+                    <p>52-11 111th Street</p>
+                    <p> Flushing Meadows Park</p>
                     <p>Queens, NY 11368</p>
+                </div>
+
+                <br></br>
+                <div className="text-[21px] text-center">
+                    <p>Dress Code: Light pastel colors</p>
                 </div>
 
                 <br></br>
                 <div className="text-[21px] text-center">
                     <p>Parking located at Venue</p>
                     <p>For Directions to venue, text “TOP” to 208-216-1688</p>
-                </div>
-
-                <br></br>
-                <div className="text-[21px] text-center">
-                    <p>Dress Code: Light pastal colors</p>
                 </div>
 
                 <br></br>
