@@ -10,9 +10,14 @@
         "date": "January 2020"
     },
     {
-        "image": "/images/proposal_pic.JPG",
-        "content": "Sohel decided to propose to propose to Fabliha at the very spot where they previously fell in love with each other. She was under the impression that they were doing a photoshoot with a close friend of Sohel's. Little did Fabliha know that her best friend would be there to capture the moment on film.",
-        "date": "January 2025"
+        "image": "/images/mirror_pic1.JPG",
+        "content": "INSERT CAPTION HERE about starting to get serious and official",
+        "date": "[date]"
+    },
+    {
+        "image": "/images/bryant_park_first.jpg",
+        "content": "First visit to Bryant Park, where they first said I Love You to each other",
+        "date": "December 2023"
     },
     {
         "image": "/images/sohel_grad_photo.JPG",
@@ -20,13 +25,38 @@
         "date": "May 2024"
     },
     {
+        "image": "/images/mirror_pic2.JPG",
+        "content": "Sohel and Fabliha continue to get to know each other and go out for various activities such as dinners, broadway shows, and more",
+        "date": "October 2024"
+    },
+    {
         "image": "/images/proposal_pic.JPG",
         "content": "Sohel decided to propose to propose to Fabliha at the very spot where they previously fell in love with each other. She was under the impression that they were doing a photoshoot with a close friend of Sohel's. Little did Fabliha know that her best friend would be there to capture the moment on film.",
         "date": "January 2025"
     },
     {
-        "image": "/images/sohel_grad_photo.JPG",
-        "content": "Sohel graduated his master program and celebrated the day with Fabliha after the official ceremony.",
-        "date": "May 2024"
+        "image": "/images/great_gatsby.JPG",
+        "content": "Enjoying engagement life by going to a broadway show. This specific one was nostalgic as they read Great Gatsby during that English class back in high school.",
+        "date": "February 2025"
+    },
+    {
+        "image": "/images/marriage_picture.jpg",
+        "content": "Sohel and Fabliha performed a small ceremony to take the first step in married life together before hosting bigger functions later in the year.",
+        "date": "March 2025"
+    },
+    {
+        "image": "/images/first_eid_post_marriage.jpg",
+        "content": "Sohel and Fabliha's first Eid celebration after getting married.",
+        "date": "March 2025"
+    },
+    {
+        "image": "/images/mini_moon_nyack.JPEG",
+        "content": "Sohel plans a mini moon trip to upstate New York as a getaway for him and Fabliha to enjoy a weekend away. This photo was taken at a Thai Restaurant in Nyack NY",
+        "date": "April 2025"
+    },
+    {
+        "image": "/images/beacon_dinner.JPEG",
+        "content": "Sohel and Fabliha also traveled to Beacon NY, where they enjoyed exploring the town and having dinner at a hotel/restaurant near waterfalls",
+        "date": "April 2025"
     }
 ]
