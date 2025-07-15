@@ -28,29 +28,29 @@ body {
 
 :root {
   /* Default (desktop) styles */
-  --fcc-digit-block-width: 55px;
-  --fcc-digit-block-height: 70px;
-  --fcc-digit-font-size: 30px;
+  --fcc-digit-block-width: 55px !important;
+  --fcc-digit-block-height: 70px !important;
+  --fcc-digit-font-size: 30px !important;
   --fcc-background: #8479D9 !important;
-  --fcc-digit-color: white;
-  --fcc-divider-color: #edd9eb; 
+  --fcc-digit-color: white !important;
+  --fcc-divider-color: #edd9eb !important; 
 }
 
 /* Mobile */
 @media (max-width: 640px) {
   :root {
-    --fcc-digit-block-width: 30px;
-    --fcc-digit-block-height: 45px;
-    --fcc-digit-font-size: 25px;
+    --fcc-digit-block-width: 30px !important;
+    --fcc-digit-block-height: 45px !important;
+    --fcc-digit-font-size: 25px !important;
   }
 }
 
 /* Small phones */
 @media (max-width: 360px) {
   :root {
-    --fcc-digit-block-width: 25px;
-    --fcc-digit-block-height: 45px;
-    --fcc-digit-font-size: 25px;
+    --fcc-digit-block-width: 25px !important;
+    --fcc-digit-block-height: 45px !important;
+    --fcc-digit-font-size: 25px !important;
   }
 }
 
