@@ -11,22 +11,15 @@ const StoryCard = ({ image, content, date }) => {
         <div className="w-60" onClick={() => setFlipped(!flipped)}>
           <div className="text-[14px] bg-white text-center w-full">{date}</div>
 
-          <Image
-            src={image}
-            alt={image}
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-full h-80"
-          ></Image>
+          <div className="flex aspect-9/16 bg-black"><img className="object-contain text-white" src={image} alt={image}/></div>
 
           <div className="text-[20px] bg-white text-center h-20 p-5 w-full">
-            Click for more deets!
+            Click for more details!
           </div>
         </div>
       ) : (
         <div
-          className="text-[15px] bg-white hover:bg-gray-100 h-100 w-60 text-center p-4"
+          className="flex text-[15px] bg-white hover:bg-gray-100 w-60 h-120 text-center p-4"
           onClick={() => setFlipped(!flipped)}
         >
           {content}
