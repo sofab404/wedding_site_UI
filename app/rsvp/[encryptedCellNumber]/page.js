@@ -125,7 +125,7 @@ export default function RSVP({params}) {
     
     
     return (
-        <div className="grid text-[20px]">
+        <div className="grid text-[15px] md:text-[20px]">
             {isLoading ? <><p className="text-[30px] text-center text-red-600">Please wait, the form is loading</p></> : <></>}
             {rsvpFormFilled ? <p>You have already filled out your RSVP form. Please see details of event here:</p> :
                 <>
@@ -145,7 +145,8 @@ export default function RSVP({params}) {
                         </> 
                     
                     : <>
-                    <p> Hello {invitationName}!</p>
+                    <p> Hello <i><b>{invitationName}!</b></i></p>
+                    <br></br>
                     <p className="text-center">Please fill out the form to RSVP to our event!</p>
                     <br></br>
 
@@ -155,7 +156,7 @@ export default function RSVP({params}) {
                             
                             
                             <label className="col-start-1 row-start-2">Are you able to attend?</label>
-                            <div className="col-start-2 row-start-2">
+                            <div className="col-start-2 row-start-2 place-self-center">
                                 <input
                                     type="radio"
                                     name="attendOptions"
@@ -167,7 +168,7 @@ export default function RSVP({params}) {
                                 <span className="ml-2 text-gray-900">Yes</span>
                             </div>
 
-                            <div className="col-start-3 row-start-2">
+                            <div className="col-start-3 row-start-2 place-self-center">
                                 <input
                                     type="radio"
                                     name="attendOptions"
@@ -194,7 +195,7 @@ export default function RSVP({params}) {
                                     {category==="plusOne" ? 
                                         <>
                                             <label className={`col-start-1 row-start-3 ${disabled ? 'opacity-50' : ''}`}>Will you be bringing a plus one? </label>
-                                            <div className="col-start-2 row-start-3">
+                                            <div className="col-start-2 row-start-3 place-self-center">
                                                 <input
                                                     type="radio"
                                                     name="plusOneOptions"
@@ -207,7 +208,7 @@ export default function RSVP({params}) {
                                                 <span className="ml-2 text-gray-900">Yes</span>
                                             </div>
 
-                                            <div className="col-start-3 row-start-3">
+                                            <div className="col-start-3 row-start-3 place-self-center">
                                                 <input
                                                     type="radio"
                                                     name="plusOneOptions"
@@ -222,7 +223,7 @@ export default function RSVP({params}) {
                                     </>}
 
                             <label className={`col-start-1 row-start-4 ${disabled ? 'opacity-50' : ''}`}>Will there be any children coming with you?</label>
-                            <div className="col-start-2 row-start-4">
+                            <div className="col-start-2 row-start-4 place-self-center">
                                 <input
                                     type="radio"
                                     name="kidsOptions"
@@ -235,7 +236,7 @@ export default function RSVP({params}) {
                                 <span className="ml-2 text-gray-900">Yes</span>
                             </div>
 
-                            <div className="col-start-3 row-start-4">
+                            <div className="col-start-3 row-start-4 place-self-center">
                                 <input
                                     type="radio"
                                     name="kidsOptions"

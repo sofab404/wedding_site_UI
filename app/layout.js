@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${marchRoughFont.className} antialiased`}
       >
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 gap-10 md:gap-16">
+        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 gap-10 md:gap-8 min-h-screen">
         <Navbar/>
         {children}
         </div>

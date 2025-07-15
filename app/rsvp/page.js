@@ -71,7 +71,7 @@ export default function MainPage() {
     }, [router, routeToPage])
     return (
 
-        <div className='grid'>
+        <div className='grid relative'>
         <label className='text-[20px] text-center'>Please Enter Your Phone Number for RSVP!</label> <br></br>
 
         <div className="flex relative">

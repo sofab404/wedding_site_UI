@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@leenguyen/react-flip-clock-countdown": "^1.7.1",
     "crypto-js": "^4.2.0",
     "next": "15.3.3",
     "react": "^19.0.0",
