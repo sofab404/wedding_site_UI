@@ -127,7 +127,7 @@ export default function RSVP({params}) {
     return (
         <div className="grid text-[15px] md:text-[20px]">
             {isLoading ? <><p className="text-[30px] text-center text-red-600">Please wait, the form is loading</p></> : <></>}
-            {rsvpFormFilled ? <p>You have already filled out your RSVP form. Please see details of event here:</p> :
+            {rsvpFormFilled ? <p>You have already filled out your RSVP form. <br></br> Please contact us if there is any issue</p> :
                 <>
                     {formSubmitted ? <>
                     
