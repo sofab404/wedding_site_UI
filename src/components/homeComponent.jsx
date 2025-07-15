@@ -7,7 +7,7 @@ const HomeComponent = () => {
       <div className="grid grid-row-2 md:grid-cols-2">
         <div className="place-self-end">
 
-          <img class="object-contain" src="/images/home_page_photo.png" />
+          <img className="object-contain" src="/images/home_page_photo.png" />
         </div>
 
         <div className="grid grid-row-3 grid-cols-3 place-self-center text-[5vw] text-pink-400"> 
