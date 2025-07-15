@@ -31,7 +31,7 @@ body {
   --fcc-digit-block-width: 55px;
   --fcc-digit-block-height: 70px;
   --fcc-digit-font-size: 30px;
-  --fcc-background: #8479D9;
+  --fcc-background: #8479D9 !important;
   --fcc-digit-color: white;
   --fcc-divider-color: #edd9eb; 
 }
