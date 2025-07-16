@@ -1,9 +1,11 @@
 'use client'
 import React, {useState, useEffect} from "react";
 import CryptoJS from "crypto-js";
+import { useRouter } from 'next/navigation';
 
 export default function RSVP({params}) {
     const { encryptedCellNumber } = React.use(params)
+    const router = useRouter();
 
     const subsDec = { "-": "+", "_": "/", "~": "=" };
     const cipherText = encryptedCellNumber.replace(/[-_~]/g, c => subsDec[c]);
@@ -119,7 +121,6 @@ export default function RSVP({params}) {
             })
 
             const data = await apiResponse.json();
-            console.log(data);
         }
     }
     
@@ -127,20 +128,28 @@ export default function RSVP({params}) {
     return (
         <div className="grid text-[15px] md:text-[20px]">
             {isLoading ? <><p className="text-[30px] text-center text-red-600">Please wait, the form is loading</p></> : <></>}
-            {rsvpFormFilled ? <p>You have already filled out your RSVP form. <br></br> Please contact us if there is any issue</p> :
+            {rsvpFormFilled ? <>
+                    <p className="text-center">You have already filled out your RSVP form. <br></br> Please contact us if there is any issue</p> 
+                    <br></br>
+                    <button className="text-[15px] cursor-pointer border border-black-300 bg-purple-300 hover:bg-purple-100 p-1" onClick={()=> router.replace(`/`)}>Click here to go to the home page</button>
+                    </>
+                    :
                 <>
                     {formSubmitted ? <>
                     
                         <p>Thank you filling out the form!</p>
                         <br></br>
-                        <p>You Submitted the Following</p>
+                        <p><u>You Submitted the Following</u></p>
 
-                        <p>Full Name: {fullName}</p>
-                        <p>Are you able to attend? {canAttend ? "Yes" : "No"} </p>
+                        <p><b>Full Name:</b> {fullName}</p>
+                        <p><b>Are you able to attend?</b> {canAttend ? "Yes" : "No"} </p>
                         {canAttend ? <>
-                            {category === "solo" ? <></> : <><p>Total Count from your party: {totalGuestCount}</p></>}
-                            <p>Are you bringing any kids? {kidsAttend ? "Yes" : "No"} </p>
+                            {category === "solo" ? <></> : <><p><b>Total Count from your party:</b> {totalGuestCount}</p></>}
+                            <p><b>Are you bringing any kids?</b> {kidsAttend ? "Yes" : "No"} </p>
                         </> : <></>}
+
+                        <br></br>
+                        <button className="text-[15px] cursor-pointer border border-black-300 bg-purple-300 hover:bg-purple-100 p-1" onClick={()=> router.replace(`/`)}>Click here to go to the home page</button>
 
                         </> 
                     
